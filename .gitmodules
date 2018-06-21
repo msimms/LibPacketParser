@@ -1,0 +1,3 @@
+[submodule "NetworkDefinitions"]
+	path = NetworkDefinitions
+	url = https://github.com/msimms/NetworkDefinitions.git
