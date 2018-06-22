@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2742A8AA20DB062F006224CE /* PacketAnalyzer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2742A8A920DB062E006224CE /* PacketAnalyzer.cpp */; };
 		2742A8AF20DC2CC6006224CE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2742A8AE20DC2CC6006224CE /* main.cpp */; };
+		279CC71F20DC7FCB00E8690E /* PacketParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279CC71E20DC7FCB00E8690E /* PacketParser.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,10 +25,10 @@
 
 /* Begin PBXFileReference section */
 		2742A89E20DB05EB006224CE /* PacketParser */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PacketParser; sourceTree = BUILT_PRODUCTS_DIR; };
-		2742A8A820DB062E006224CE /* PacketAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PacketAnalyzer.h; sourceTree = SOURCE_ROOT; };
-		2742A8A920DB062E006224CE /* PacketAnalyzer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PacketAnalyzer.cpp; sourceTree = SOURCE_ROOT; };
 		2742A8AB20DC1E2B006224CE /* NetworkDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkDefinitions.h; path = NetworkDefinitions/NetworkDefinitions.h; sourceTree = "<group>"; };
 		2742A8AE20DC2CC6006224CE /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		279CC71D20DC7FCB00E8690E /* PacketParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PacketParser.h; sourceTree = SOURCE_ROOT; };
+		279CC71E20DC7FCB00E8690E /* PacketParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PacketParser.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +63,8 @@
 		2742A8A020DB05EB006224CE /* PacketParser */ = {
 			isa = PBXGroup;
 			children = (
-				2742A8A920DB062E006224CE /* PacketAnalyzer.cpp */,
-				2742A8A820DB062E006224CE /* PacketAnalyzer.h */,
+				279CC71E20DC7FCB00E8690E /* PacketParser.cpp */,
+				279CC71D20DC7FCB00E8690E /* PacketParser.h */,
 			);
 			path = PacketParser;
 			sourceTree = "<group>";
@@ -125,8 +125,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				279CC71F20DC7FCB00E8690E /* PacketParser.cpp in Sources */,
 				2742A8AF20DC2CC6006224CE /* main.cpp in Sources */,
-				2742A8AA20DB062F006224CE /* PacketAnalyzer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
