@@ -28,17 +28,48 @@ namespace PacketParser
 	{
 		headers.push_back(std::make_pair(HEADER_ARP, data));
 	}
+	
+	void ParseDnsPacket(const uint8_t* data, size_t dataLen, HeaderList& headers)
+	{
+		headers.push_back(std::make_pair(HEADER_DNS, data));
+	}
+	
+	void ParseHttpPacket(const uint8_t* data, size_t dataLen, HeaderList& headers)
+	{
+		headers.push_back(std::make_pair(HEADER_HTTP, data));
+	}
+	
+	void ParseApplicationData(const uint8_t* data, size_t dataLen, HeaderList& headers, uint16_t portNum)
+	{
+		switch (portNum)
+		{
+			case PORT_DNS:
+				ParseDnsPacket(data, dataLen, headers);
+				break;
+			case PORT_HTTP:
+				ParseHttpPacket(data, dataLen, headers);
+				break;
+		}
+	}
 
 	void ParseIcmpV4Packet(const uint8_t* data, size_t dataLen, HeaderList& headers)
 	{
-		const IcmpV4Header* icmpHdr = (const IcmpV4Header*)(data);
-
 		if (dataLen < sizeof(IcmpV4Header))
 		{
 			return;
 		}
 
 		headers.push_back(std::make_pair(HEADER_ICMPV4, data));
+	}
+
+	void ParseIcmpV6Packet(const uint8_t* data, size_t dataLen, HeaderList& headers)
+	{
+		if (dataLen < sizeof(IcmpV4Header))
+		{
+			return;
+		}
+
+		headers.push_back(std::make_pair(HEADER_ICMPV6, data));
 	}
 
 	void ParseTcpPacket(const uint8_t* data, size_t dataLen, HeaderList& headers)
@@ -51,6 +82,15 @@ namespace PacketParser
 		}
 
 		headers.push_back(std::make_pair(HEADER_TCP, data));
+
+		const uint8_t* nextHdr = data + sizeof(TcpHeader);
+		size_t nextHdrLen = dataLen - sizeof(TcpHeader);
+
+		uint16_t sourcePort = ntohs(tcpHdr->sourcePort);
+		uint16_t destPort = ntohs(tcpHdr->destPort);
+
+		ParseApplicationData(nextHdr, nextHdrLen, headers, sourcePort);
+		ParseApplicationData(nextHdr, nextHdrLen, headers, destPort);
 	}
 
 	void ParseUdpPacket(const uint8_t* data, size_t dataLen, HeaderList& headers)
@@ -63,6 +103,15 @@ namespace PacketParser
 		}
 
 		headers.push_back(std::make_pair(HEADER_UDP, data));
+
+		const uint8_t* nextHdr = data + sizeof(UdpHeader);
+		size_t nextHdrLen = dataLen - sizeof(UdpHeader);
+
+		uint16_t sourcePort = ntohs(udpHdr->sourcePort);
+		uint16_t destPort = ntohs(udpHdr->destPort);
+
+		ParseApplicationData(nextHdr, nextHdrLen, headers, sourcePort);
+		ParseApplicationData(nextHdr, nextHdrLen, headers, destPort);
 	}
 
 	void ParseIpV4Packet(const uint8_t* data, size_t dataLen, HeaderList& headers)
@@ -127,6 +176,7 @@ namespace PacketParser
 		case IP_UNKNOWN:
 			break;
 		case IP_ICMP:
+			ParseIcmpV6Packet(nextHdr, nextHdrLen, headers);
 			break;
 		case IP_TCP:
 			ParseTcpPacket(nextHdr, nextHdrLen, headers);

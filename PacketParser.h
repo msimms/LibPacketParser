@@ -35,7 +35,10 @@ namespace PacketParser
 		HEADER_UDP,
 		HEADER_ARP,
 		HEADER_ICMPV4,
-		HEADER_ICMPV6
+		HEADER_ICMPV6,
+		HEADER_DNS,
+		HEADER_HTTP,
+		HEADER_HTTPS
 	} HeaderType;
 
 	typedef std::vector< std::pair<HeaderType, const uint8_t*> > HeaderList;
