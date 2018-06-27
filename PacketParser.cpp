@@ -219,7 +219,7 @@ namespace PacketParser
 		}
 	}
 
-	void ParsePacket(const uint8_t* data, size_t dataLen, HeaderList& headers)
+	void Parse(const uint8_t* data, size_t dataLen, HeaderList& headers)
 	{
 		ParseEtherPacket(data, dataLen, headers);
 	}

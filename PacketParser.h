@@ -41,7 +41,8 @@ namespace PacketParser
 		HEADER_HTTPS
 	} HeaderType;
 
-	typedef std::vector< std::pair<HeaderType, const uint8_t*> > HeaderList;
+	typedef std::pair<HeaderType, const uint8_t*> HeaderRef; // The second item in the pair is a pointer to the start of the header.
+	typedef std::vector<HeaderRef> HeaderList;
 
-	void ParsePacket(const uint8_t* data, size_t dataLen, HeaderList& headers);
+	void Parse(const uint8_t* data, size_t dataLen, HeaderList& headers);
 };

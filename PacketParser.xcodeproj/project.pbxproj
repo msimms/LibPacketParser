@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2742A8AF20DC2CC6006224CE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2742A8AE20DC2CC6006224CE /* main.cpp */; };
+		2770B28C20E3214E00497DEA /* libpcap.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2770B28B20E3214E00497DEA /* libpcap.tbd */; };
 		279CC71F20DC7FCB00E8690E /* PacketParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279CC71E20DC7FCB00E8690E /* PacketParser.cpp */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		2742A89E20DB05EB006224CE /* PacketParser */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PacketParser; sourceTree = BUILT_PRODUCTS_DIR; };
 		2742A8AB20DC1E2B006224CE /* NetworkDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkDefinitions.h; path = NetworkDefinitions/NetworkDefinitions.h; sourceTree = "<group>"; };
 		2742A8AE20DC2CC6006224CE /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		2770B28B20E3214E00497DEA /* libpcap.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libpcap.tbd; path = usr/lib/libpcap.tbd; sourceTree = SDKROOT; };
 		279CC71D20DC7FCB00E8690E /* PacketParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PacketParser.h; sourceTree = SOURCE_ROOT; };
 		279CC71E20DC7FCB00E8690E /* PacketParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PacketParser.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -36,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2770B28C20E3214E00497DEA /* libpcap.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,6 +52,7 @@
 				2742A8AB20DC1E2B006224CE /* NetworkDefinitions.h */,
 				2742A8A020DB05EB006224CE /* PacketParser */,
 				2742A89F20DB05EB006224CE /* Products */,
+				2770B28A20E3214E00497DEA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +71,14 @@
 				279CC71D20DC7FCB00E8690E /* PacketParser.h */,
 			);
 			path = PacketParser;
+			sourceTree = "<group>";
+		};
+		2770B28A20E3214E00497DEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2770B28B20E3214E00497DEA /* libpcap.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
