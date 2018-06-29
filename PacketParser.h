@@ -37,6 +37,7 @@ namespace PacketParser
 		HEADER_ICMPV4,
 		HEADER_ICMPV6,
 		HEADER_DNS,
+		HEADER_MDNS,
 		HEADER_HTTP,
 		HEADER_HTTPS
 	} HeaderType;

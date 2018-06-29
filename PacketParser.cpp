@@ -34,6 +34,11 @@ namespace PacketParser
 		headers.push_back(std::make_pair(HEADER_DNS, data));
 	}
 	
+	void ParseMdnsPacket(const uint8_t* data, size_t dataLen, HeaderList& headers)
+	{
+		headers.push_back(std::make_pair(HEADER_MDNS, data));
+	}
+	
 	void ParseHttpPacket(const uint8_t* data, size_t dataLen, HeaderList& headers)
 	{
 		headers.push_back(std::make_pair(HEADER_HTTP, data));
@@ -48,6 +53,9 @@ namespace PacketParser
 				break;
 			case PORT_HTTP:
 				ParseHttpPacket(data, dataLen, headers);
+				break;
+			case PORT_MDNS:
+				ParseMdnsPacket(data, dataLen, headers);
 				break;
 		}
 	}
