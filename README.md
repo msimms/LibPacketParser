@@ -1,3 +1,5 @@
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+
 # LibPacketParser
 This project provides a C++ library that parses network packets and returns a list of pointers to the header for each layer. In other words, it's an extremely simple packet dissector.
 
